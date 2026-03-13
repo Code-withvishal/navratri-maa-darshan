@@ -1,0 +1,405 @@
+body{
+margin:0;
+overflow:hidden;
+font-family:sans-serif;
+text-align:center;
+color:white;
+
+background:radial-gradient(circle,
+#ffd700 0%,
+#ff8c00 40%,
+#8b0000 70%,
+#2b0000 100%);
+}
+
+/* TITLE */
+
+.title{
+
+font-size:70px;
+
+margin-top:-5px;
+
+font-weight:bold;
+
+color:#ff6200de;
+
+text-shadow:
+0 0 10px #fff,
+0 0 20px rgb(255, 183, 0),
+0 0 40px rgba(255, 102, 0, 0.991);
+
+position:relative;
+
+z-index:5;
+
+/* TEXT ENTRY ANIMATION */
+
+opacity:0;
+
+animation:titleEntry 3s forwards;
+
+}
+
+@keyframes titleEntry{
+
+0%{
+opacity:0;
+transform:translateY(-80px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+/* BELLS */
+
+.bell{
+position:absolute;
+top:0;
+font-size:90px;
+animation:swing 1s infinite alternate;
+}
+
+.left{ left:60px; }
+.right{ right:60px; }
+
+@keyframes swing{
+from{ transform:rotate(-20deg); }
+to{ transform:rotate(20deg); }
+}
+
+/* DURGA CENTER */
+
+.durga-container{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+}
+
+/* SUN GLOW CIRCLE */
+
+.sun-circle{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%) scale(.3);
+
+width:750px;
+height:750px;
+
+border-radius:50%;
+
+background:radial-gradient(circle,
+#fff200,
+#ff9800,
+transparent);
+
+opacity:0;
+
+animation:sunEntry 3s forwards;
+
+z-index:1;
+
+}
+
+@keyframes sunEntry{
+
+0%{
+opacity:0;
+transform:translate(-50%,-50%) scale(.3);
+}
+
+100%{
+opacity:1;
+transform:translate(-50%,-50%) scale(1);
+}
+
+}
+
+/* LIGHT GLOW */
+
+.light{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:700px;
+height:700px;
+border-radius:50%;
+
+background:radial-gradient(circle,
+rgba(255,255,0,0.9),
+rgba(255,150,0,0.6),
+rgba(255,100,0,0.3),
+transparent);
+
+animation:pulse 2s infinite alternate;
+
+z-index:1;
+}
+
+@keyframes pulse{
+from{ transform:translate(-50%,-50%) scale(.9); }
+to{ transform:translate(-50%,-50%) scale(1.1); }
+}
+
+/* DURGA IMAGE */
+
+.durga{
+
+position:relative;
+
+width:600px;
+
+z-index:2;
+
+opacity:0;
+
+animation:maaEntry 3s forwards;
+
+filter:drop-shadow(0 0 40px gold);
+
+}
+
+@keyframes maaEntry{
+
+0%{
+opacity:0;
+transform:scale(.4);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+/* DIYAS */
+
+.diyas{
+position:absolute;
+bottom:0;
+width:100%;
+font-size:42px;
+animation:flicker 1s infinite alternate;
+}
+
+@keyframes flicker{
+from{opacity:0.7;}
+to{opacity:1;}
+}
+
+/* FLOWERS */
+
+.flower{
+position:absolute;
+top:-20px;
+font-size:25px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+to{ transform:translateY(100vh); }
+}
+/* CURTAIN */
+
+.curtain-left,
+.curtain-right{
+
+position:fixed;
+top:0;
+width:50%;
+height:100%;
+
+background:repeating-linear-gradient(
+90deg,
+#7b0000 0px,
+#7b0000 60px,
+#a00000 60px,
+#a00000 120px
+);
+
+box-shadow:inset 0 0 80px #000;
+
+z-index:999;
+
+transition:2s;
+
+}
+
+.curtain-left{
+left:0;
+}
+
+.curtain-right{
+right:0;
+}
+
+/* curtain text */
+
+.curtain-text{
+
+position:absolute;
+
+top:40%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+text-align:center;
+
+color:#ffeb3b;
+
+font-size:40px;
+
+font-weight:bold;
+
+line-height:60px;
+
+text-shadow:
+0 0 10px #000,
+0 0 20px #ff9800,
+0 0 40px gold;
+
+}
+
+/* rope */
+
+.rope{
+
+position:fixed;
+
+top:0;
+left:50%;
+
+transform:translateX(-50%);
+
+width:8px;
+height:200px;
+
+background:#d2a679;
+
+z-index:1000;
+
+cursor:pointer;
+
+}
+
+.rope::after{
+
+content:"";
+
+position:absolute;
+
+bottom:-20px;
+left:-10px;
+
+width:28px;
+height:28px;
+
+background:#d2a679;
+
+border-radius:50%;
+
+}
+
+/* open curtain */
+
+.open-left{
+transform:translateX(-100%);
+}
+
+.open-right{
+transform:translateX(100%);
+}
+/* rotating light */
+
+.rotate-light{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:800px;
+height:800px;
+
+border-radius:50%;
+
+background:radial-gradient(circle,
+rgba(255,255,0,0.5),
+rgba(255,150,0,0.4),
+transparent);
+
+animation:rotateLight 15s linear infinite;
+
+z-index:0;
+
+}
+
+@keyframes rotateLight{
+
+from{ transform:translate(-50%,-50%) rotate(0deg); }
+
+to{ transform:translate(-50%,-50%) rotate(360deg); }
+
+}
+.curtain-text-left{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+text-align:center;
+
+color:#ffd700;
+
+font-size:40px;
+
+font-weight:bold;
+
+line-height:60px;
+
+text-shadow:
+0 0 10px orange,
+0 0 20px gold;
+
+}
+
+.curtain-text-right{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+text-align:center;
+
+color:#ffd700;
+
+font-size:40px;
+
+font-weight:bold;
+
+line-height:60px;
+
+text-shadow:
+0 0 10px orange,
+0 0 20px gold;
+
+}
